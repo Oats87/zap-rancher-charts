@@ -1,0 +1,69 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ template "btcd.fullname" . }}
+  labels:
+    app: {{ template "btcd.name" . }}
+    chart: {{ template "btcd.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "btcd.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "btcd.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      {{- if .Values.configurationFile }}
+      initContainers:
+        - name: copy-btcd-config
+          image: busybox
+          command: ['sh', '-c', 'cp /configmap/btcd.conf /btcd/.btcd/btcd.conf']
+          volumeMounts:
+            - name: configmap
+              mountPath: /configmap
+            - name: config
+              mountPath: /btcd/.btcd/
+      {{- end }}
+      containers:
+        - name: {{ template "btcd.fullname" . }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+          resources:
+  {{ toYaml .Values.resources | indent 10 }}
+          ports:
+            - name: rpc
+              containerPort: {{ .Values.service.rpcPort }}
+            - name: p2p
+              containerPort: {{ .Values.service.p2pPort }}
+            - name: testnet
+              containerPort: {{ .Values.service.testnetPort }}
+            - name: testnetp2pport
+              containerPort: {{ .Values.service.testnetP2pPort }}
+          volumeMounts:
+            - name: data
+              mountPath: /btcd
+            {{- if .Values.configurationFile }}
+            - name: config
+              mountPath: /btcd/.btcd/btcd.conf
+              subPath: btcd.conf
+            {{- end }}
+      volumes:
+        {{- if .Values.configurationFile }}
+        - name: config
+          emptyDir: {}
+        - name: configmap
+          configMap:
+            name: {{ template "btcd.fullname" . }}
+        {{- end }}
+        - name: data
+        {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (include "btcd.fullname" .) }}
+        {{- else }}
+          emptyDir: {}
+        {{- end -}}

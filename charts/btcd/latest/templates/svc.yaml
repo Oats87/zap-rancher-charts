@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "btcd.fullname" . }}
+  labels:
+    app: {{ template "btcd.name" . }}
+    chart: {{ template "btcd.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  ports:
+    - name: rpc
+      port: {{ .Values.service.rpcPort }}
+      targetPort: rpc
+    - name: p2p
+      port: {{ .Values.service.p2pPort }}
+      targetPort: p2p
+    - name: testnet
+      port: {{ .Values.service.testnetPort }}
+    - name: testnet-p2p
+      port: {{ .Values.service.testnetP2pPort }}
+  selector:
+    app: {{ template "btcd.name" . }}
+    release: {{ .Release.Name }}

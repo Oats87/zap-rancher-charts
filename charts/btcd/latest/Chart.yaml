@@ -1,0 +1,19 @@
+apiVersion: v1
+name: btcd
+version: 0.1.0
+appVersion: "latest"
+description: Bitcoin is an innovative payment network and a new kind of money.
+keywords:
+  - btcd
+  - bitcoin
+  - cryptocurrency
+  - blockchain
+home: https://btcinformation.org/
+icon: https://btcinformation.org/img/icons/logotop.svg
+sources:
+  - https://github.com/kubernetes/charts
+  - https://github.com/Roasbeef/btcd-in-a-box
+maintainers:
+  - name: tom-kirkpatrick
+    email: tkp@kirkdesigns.co.uk
+engine: gotpl
