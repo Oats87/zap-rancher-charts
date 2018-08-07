@@ -40,20 +40,19 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the btcd chart and their default values.
 
-| Parameter                | Description                         | Default            |
-| ------------------------ | ----------------------------------- | ------------------ |
-| `image.repository`       | Image source repository name        | `roasbeef/btcd`    |
-| `image.tag`              | `btcd` release tag.                 | `latest`           |
-| `image.pullPolicy`       | Image pull policy                   | `IfNotPresent`     |
-| `service.rpcPort`        | RPC port                            | `8332`             |
-| `service.p2pPort`        | P2P port                            | `8333`             |
-| `service.testnetPort`    | Testnet port                        | `18332`            |
-| `service.testnetP2pPort` | Testnet p2p ports                   | `18333`            |
-| `service.selector`       | Node selector                       | `tx-broadcast-svc` |
-| `persistence.enabled`    | Create a volume to store data       | `true`             |
-| `persistence.accessMode` | ReadWriteOnce or ReadOnly           | `ReadWriteOnce`    |
-| `persistence.size`       | Size of persistent volume claim     | `300Gi`            |
-| `resources`              | CPU/Memory resource requests/limits | `{}`               |
+| Parameter                | Description                         | Default         |
+| ------------------------ | ----------------------------------- | --------------- |
+| `image.repository`       | Image source repository name        | `roasbeef/btcd` |
+| `image.tag`              | `btcd` release tag.                 | `latest`        |
+| `image.pullPolicy`       | Image pull policy                   | `IfNotPresent`  |
+| `service.rpcPort`        | RPC port                            | `8334`          |
+| `service.p2pPort`        | P2P port                            | `8333`          |
+| `service.testnetPort`    | Testnet port                        | `18334`         |
+| `service.testnetP2pPort` | Testnet p2p ports                   | `18333`         |
+| `persistence.enabled`    | Create a volume to store data       | `true`          |
+| `persistence.accessMode` | ReadWriteOnce or ReadOnly           | `ReadWriteOnce` |
+| `persistence.size`       | Size of persistent volume claim     | `300Gi`         |
+| `resources`              | CPU/Memory resource requests/limits | `{}`            |
 | `configurationFile`      | Config file ConfigMap entry         |
 
 For more information about btcd configuration please see [btcd.conf configuration file](https://github.com/btcsuite/btcd/tree/master/docs#Configuration).

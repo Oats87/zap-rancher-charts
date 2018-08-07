@@ -8,9 +8,9 @@ image:
   pullPolicy: IfNotPresent
 
 service:
-  rpcPort: 8332
+  rpcPort: 8334
   p2pPort: 8333
-  testnetPort: 18332
+  testnetPort: 18334
   testnetP2pPort: 18333
 
 persistence:
@@ -37,7 +37,5 @@ resources: {}
 # Custom btcd configuration file used to override default btcd settings
 configurationFile:
   btcd.conf: |-
-    server=1
-    printtoconsole=1
     rpcuser=rpcuser
-    rpcpassword=rpcpassword
+    rpcpass=rpcpass

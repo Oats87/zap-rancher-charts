@@ -47,7 +47,7 @@ questions:
     label: btcd Volume Access Mode
 
 - variable: service.rpcPort
-  default: 8332
+  default: 8334
   description: "Port used to expose RPC interface"
   type: string
   required: true
@@ -61,7 +61,7 @@ questions:
   label: P2P Port
   group: "btcd Settings"
 - variable: service.testnetPort
-  default: 18332
+  default: 18334
   description: "Port used to expose RPC interface (testnet)"
   type: string
   required: true
