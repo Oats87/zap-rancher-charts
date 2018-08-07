@@ -21,3 +21,37 @@ questions:
     description: "If undefined or null, uses the default StorageClass. Default to null"
     type: storageclass
     label: Default StorageClass for btcd
+  - variable: persistence.accessMode
+    default: "ReadWriteOnce"
+    description: "btcd Persistent Volume Access Mode (ReadWriteOnce or ReadOnly)"
+    type: string
+    label: btcd Volume Access Mode
+
+- variable: service.rpcPort
+  default: 8332
+  description: "Port used to expose RPC interface"
+  type: string
+  required: true
+  label: RCP Port
+  group: "btcd Settings"
+- variable: service.p2pPort
+  default: 8333
+  description: "Port used to expose P2P interface"
+  type: string
+  required: true
+  label: P2P Port
+  group: "btcd Settings"
+- variable: service.testnetPort
+  default: 18332
+  description: "Port used to expose RPC interface (testnet)"
+  type: string
+  required: true
+  label: RCP Port (testnet)
+  group: "btcd Settings"
+- variable: service.testnetP2pPort
+  default: 18333
+  description: "Port used to expose P2P interface (testnet)"
+  type: string
+  required: true
+  label: P2P Port (testnet)
+  group: "btcd Settings"
