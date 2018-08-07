@@ -2,6 +2,25 @@ categories:
 - Microservice
 - E-Commerce
 questions:
+- variable: defaultImage
+  default: "true"
+  description: "Use default Docker image"
+  label: Use Default Images
+  type: boolean
+  show_subquestion_if: false
+  group: "Container Images"
+  subquestions:
+  - variable: image.repository
+    default: "roasbeef/btcd"
+    description: "btcd Docker image"
+    type: string
+    label: btcd Docker Image
+  - variable: image.tag
+    default: "latest"
+    description: "btcd Docker image tag"
+    type: string
+    label: btcd Docker Image Tag
+
 - variable: persistence.enabled
   default: "true"
   description: "Enable persistent volume for btcd"
