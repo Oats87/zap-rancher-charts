@@ -1,0 +1,23 @@
+categories:
+- Microservice
+- E-Commerce
+questions:
+- variable: persistence.enabled
+  default: "true"
+  description: "Enable persistent volume for btcd"
+  type: boolean
+  required: true
+  label: btcd Persistent Volume Enabled
+  show_subquestion_if: true
+  group: "btcd Settings"
+  subquestions:
+  - variable: persistence.size
+    default: "300Gi"
+    description: "btcd Persistent Volume Size"
+    type: string
+    label: btcd Volume Size
+  - variable: persistence.storageClass
+    default: ""
+    description: "If undefined or null, uses the default StorageClass. Default to null"
+    type: storageclass
+    label: Default StorageClass for btcd
