@@ -11,7 +11,7 @@ keywords:
 home: https://btcinformation.org/
 icon: https://btcinformation.org/img/icons/logotop.svg
 sources:
-  - https://github.com/ln-zap/docker-btcd
+  - https://github.com/Oats87/docker-btcd
 maintainers:
   - name: tom-kirkpatrick
     email: tkp@kirkdesigns.co.uk
