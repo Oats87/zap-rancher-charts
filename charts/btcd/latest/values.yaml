@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 
 image:
-  repository: roasbeef/btcd
+  repository: lnzap/btcd
   tag: latest
   pullPolicy: IfNotPresent
 

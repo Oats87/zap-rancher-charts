@@ -11,7 +11,7 @@ questions:
   group: "Container Images"
   subquestions:
   - variable: image.repository
-    default: "roasbeef/btcd"
+    default: "lnzap/btcd"
     description: "btcd Docker image"
     type: string
     label: btcd Docker Image

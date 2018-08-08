@@ -11,8 +11,7 @@ keywords:
 home: https://btcinformation.org/
 icon: https://btcinformation.org/img/icons/logotop.svg
 sources:
-  - https://github.com/kubernetes/charts
-  - https://github.com/Roasbeef/btcd-in-a-box
+  - https://github.com/ln-zap/docker-btcd
 maintainers:
   - name: tom-kirkpatrick
     email: tkp@kirkdesigns.co.uk

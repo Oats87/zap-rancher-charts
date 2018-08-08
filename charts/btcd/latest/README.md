@@ -6,7 +6,7 @@ managing transactions and the issuing of bitcoins is carried out collectively by
 ## Introduction
 
 This chart bootstraps a single node btcd deployment on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
-Docker image was taken from [btcd for Docker](https://github.com/Roasbeef/btcd-in-a-box) - many thanks!
+Docker image was based on [docker-bitcoind](https://github.com/kylemanna/docker-bitcoind) - many thanks!
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ The following table lists the configurable parameters of the btcd chart and thei
 
 | Parameter                | Description                         | Default         |
 | ------------------------ | ----------------------------------- | --------------- |
-| `image.repository`       | Image source repository name        | `roasbeef/btcd` |
+| `image.repository`       | Image source repository name        | `lnzap/btcd`    |
 | `image.tag`              | `btcd` release tag.                 | `latest`        |
 | `image.pullPolicy`       | Image pull policy                   | `IfNotPresent`  |
 | `service.rpcPort`        | RPC port                            | `8334`          |
