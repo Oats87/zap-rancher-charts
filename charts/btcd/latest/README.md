@@ -83,8 +83,6 @@ Please NOT use emptyDir for production cluster! Your wallets will be lost on con
 ```yaml
 configurationFile:
   btcd.conf: |-
-    server=1
-    printtoconsole=1
     rpcuser=rpcuser
     rpcpassword=rpcpassword
 ```
