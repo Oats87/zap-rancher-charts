@@ -28,7 +28,7 @@ questions:
   required: true
   label: btcd Persistent Volume Enabled
   show_subquestion_if: true
-  group: "btcd Settings"
+  group: "Volumes Settings"
   subquestions:
   - variable: persistence.size
     default: "300Gi"
