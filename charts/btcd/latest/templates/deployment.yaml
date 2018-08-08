@@ -17,6 +17,8 @@ spec:
       labels:
         app: {{ template "btcd.name" . }}
         release: {{ .Release.Name }}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
     spec:
       {{- if .Values.configurationFile }}
       initContainers:
