@@ -37,15 +37,6 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
           resources:
   {{ toYaml .Values.resources | indent 10 }}
-          ports:
-            - name: rpc
-              containerPort: {{ .Values.service.rpcPort }}
-            - name: p2p
-              containerPort: {{ .Values.service.p2pPort }}
-            - name: testnet
-              containerPort: {{ .Values.service.testnetPort }}
-            - name: testnetp2pport
-              containerPort: {{ .Values.service.testnetP2pPort }}
           volumeMounts:
             - name: data
               mountPath: /btcd
